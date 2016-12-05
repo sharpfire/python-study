@@ -1,0 +1,18 @@
+# Assignment 10.2
+hour_fc = {}
+book = open("mbox-short.txt")
+
+for line in book:
+    line.strip
+    if not line.startswith("From "):
+        continue
+    words = line.split()
+    time = words[5]
+    hour = time[0:2]
+    hour_fc[hour] = hour_fc.get(hour,0) +1 
+
+lst = []
+tmp = ([(t,c) for (t,c) in hour_fc.items()])
+tmp.sort(reverse = False)
+for k,v in tmp:
+    print (k,v)
