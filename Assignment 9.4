@@ -1,0 +1,21 @@
+# Assignment 9.4
+book = open("mbox-short.txt")
+
+worddict = {}
+
+for line in book: 
+    line = line.rstrip()
+    if not line.startswith("From "):
+        continue
+    word = line.split()
+    word1 = word[1]
+    worddict[word1] = worddict.get(word1,0) + 1
+
+
+bigname = None
+bignumber = None
+for name,number in worddict.items():
+    if bignumber is None or number > bignumber:
+        bigname = name
+        bignumber = number
+print (bigname,bignumber)
