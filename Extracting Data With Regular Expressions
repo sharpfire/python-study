@@ -1,0 +1,11 @@
+import re
+
+x = ("From stephen.marquard@uct.ac.za Sat Jan  5 09:14:16 2008")
+y = re.findall("\S+@\S+",x)
+txt = open("regex_sum_339657.txt")
+book = txt.read()
+haha = None
+number = re.findall("[0-9]+",book)
+number1 = sum([int(x) for x in number ])
+
+print (number1)  
