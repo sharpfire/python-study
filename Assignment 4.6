@@ -1,0 +1,11 @@
+#Assignment 4.6
+
+def computepay(hours,rates):
+	if hours <= 40 :
+		return(hours * rates)
+	else :
+		return(40 * rates + (hours - 40) * (rates * 1.5))
+
+hours = float(raw_input("input your hours"))
+rates = float(raw_input("input your rates"))
+print(computepay(hours,rates))
