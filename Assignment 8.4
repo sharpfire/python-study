@@ -1,0 +1,16 @@
+#Assignment 8.4
+
+book = open("romeo.txt")
+
+wordlist = list()
+
+for line in book:
+    line.rstrip()
+    word = line.split()
+    for word1 in word:
+        if word1 in wordlist:
+            continue
+        else:
+           wordlist.append(word1)
+wordlist.sort()
+print (wordlist)
