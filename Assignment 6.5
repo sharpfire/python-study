@@ -1,0 +1,7 @@
+#Assignment 6.5
+
+text = "X-DSPAM-Confidence:    0.8475"
+text1 = int(text.find(":"))+1
+show = text[text1:]
+show = float(show.strip())
+print show
