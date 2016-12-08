@@ -1,0 +1,33 @@
+#Extracting Data from XML
+
+#counts = tree.findall('.//count')     
+#XPath selector string 搜索整个树寻找含有名为count的tag
+
+
+print("$ python solution.py")
+import urllib
+import xml.etree.ElementTree as ET
+urlinput = input("Enter location:")
+a = urllib.request.urlopen(urlinput).read()
+#http://python-data.dr-chuck.net/comments_339659.xml
+
+
+
+print ("Retrieving",urlinput)
+print ("Retrieved",len(a),"characters")
+
+
+stuff = ET.fromstring(a)
+book = stuff.findall(".//count")
+
+count = 0
+lst = []
+for i in book:
+    i = int(i.text)
+    count = count + 1
+    lst.append(i)
+    
+    
+    
+print ("count:",count)
+print ("sum:",sum(lst))
