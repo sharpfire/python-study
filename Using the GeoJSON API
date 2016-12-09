@@ -1,0 +1,20 @@
+#Using the GeoJSON API
+
+import urllib
+import json
+
+# serviceurl = "http://python-data.dr-chuck.net/geojson"
+serviceurl = "http://python-data.dr-chuck.net/geojson?"
+#Moscow Engineering-Physics Institute
+address = input('Enter location: ')
+url = serviceurl + urllib.parse.urlencode({'sensor':'false', 'address': address})
+print ('Retrieving', url)
+        
+data = urllib.request.urlopen(url).read()
+print ('Retrieved',len(data),'characters')
+    
+js = json.loads(data.decode("utf8"))
+re = js['results'][0]['place_id']
+print ("----------------------------------------------------------------")
+
+print ("Place id",re)
