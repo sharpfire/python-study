@@ -1,0 +1,26 @@
+
+
+
+import urllib
+import json
+
+eurl = input("Enter location")
+a = urllib.request.urlopen(eurl).read()
+#http://python-data.dr-chuck.net/comments_339663.json
+print ("Retrieving",eurl)
+print ("Retrieved",len(a),"characters")
+
+
+
+data = json.loads(a.decode('utf8'))
+#转码很重要 不然不能用
+out = data['comments']
+
+
+count = 0
+allnumber = 0
+for number in out :
+    count = count + 1
+    allnumber = allnumber + int(number["count"])
+print ("Count:",count)
+print ("Sum:",allnumber)
